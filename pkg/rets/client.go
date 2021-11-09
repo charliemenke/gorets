@@ -50,7 +50,7 @@ func DefaultSession(user, pwd, userAgent, userAgentPw, retsVersion string, trans
 	client.Jar = jar
 	// 4) send the request
 	request := func(ctx context.Context, req *http.Request) (*http.Response, error) {
-		return ctxhttp.Do(ctx, client, req.WithContext(ctx))
+		return ctxhttp.Do(ctx, client, req)
 	}
 	// 3) www auth
 	wwwAuth := (&WWWAuthTransport{
