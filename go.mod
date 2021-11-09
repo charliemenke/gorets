@@ -13,7 +13,8 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/spf13/cobra v0.0.0-20170420133506-a3cd8ab85aeb
 	github.com/spf13/pflag v1.0.5 // indirect
-	github.com/stretchr/testify v1.1.5-0.20170809224252-890a5c3458b4
-	golang.org/x/net v0.0.0-20160811235142-07b51741c1d6
-	golang.org/x/text v0.0.0-20160407075239-5ee49cfe7511
+	github.com/stretchr/testify v1.6.1
+	go.elastic.co/apm/module/apmhttp v1.14.0 // indirect
+	golang.org/x/net v0.0.0-20200226121028-0de0cce0169b
+	golang.org/x/text v0.3.2
 )
