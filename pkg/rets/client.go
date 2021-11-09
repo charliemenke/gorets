@@ -7,7 +7,6 @@ import (
 	"context"
 
 	"github.com/jpfielding/gowirelog/wirelog"
-	"go.elastic.co/apm/module/apmhttp"
 	"golang.org/x/net/context/ctxhttp"
 )
 
@@ -39,14 +38,10 @@ const (
 type Requester func(ctx context.Context, req *http.Request) (*http.Response, error)
 
 // DefaultSession configures the default rets session
-func DefaultSession(user, pwd, userAgent, userAgentPw, retsVersion string, transport http.RoundTripper, ctx context.Context) (Requester, error) {
+func DefaultSession(user, pwd, userAgent, userAgentPw, retsVersion string, transport http.RoundTripper, client *http.Client) (Requester, error) {
 	if transport == nil {
 		transport = wirelog.NewHTTPTransport()
 	}
-
-	client := apmhttp.WrapClient(&http.Client{
-		Transport: transport,
-	})
 
 	jar, err := cookiejar.New(nil)
 	if err != nil {
